@@ -1,4 +1,34 @@
-# Cloud Run Streamlit Application with Gemini API in Vertex AI
+<div align="center">
+
+# Gemini on Cloud Run (Streamlit)
+
+**A Streamlit app that calls Gemini through Vertex AI, deployable to Google Cloud Run.**
+
+![Cloud Cloud Run](https://img.shields.io/badge/Cloud-Cloud_Run-4285F4?style=for-the-badge&logo=googlecloud&logoColor=white) ![Model Gemini (Vertex AI)](https://img.shields.io/badge/Model-Gemini_(Vertex_AI)-8E75B2?style=for-the-badge&logo=googlegemini&logoColor=white) ![UI Streamlit](https://img.shields.io/badge/UI-Streamlit-FF4B4B?style=for-the-badge&logo=streamlit&logoColor=white)
+
+</div>
+
+> Based on the Google Cloud Generative AI sample (authors credited below). Completed as part of the Google Cloud skill badge "Develop GenAI Apps with Gemini and Streamlit".
+
+## Tech stack
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=py,streamlit,docker,gcp&perline=10" alt="Tech stack" />
+</p>
+
+## Request flow
+
+```mermaid
+flowchart LR
+    U(["User"]) --> ST["Streamlit app\napp.py"]
+    ST --> SDK["google-genai client\nVertex AI mode"]
+    SDK --> G["Gemini API"]
+    G --> ST
+    ST --> CR["Container\nDockerfile -> Cloud Run"]
+    AUTH["google.auth\nproject + credentials"] --> SDK
+```
+
+---
 
 [![Run on Google Cloud](https://deploy.cloud.run/button.svg)](https://deploy.cloud.run)
 
